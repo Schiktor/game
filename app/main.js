@@ -1,7 +1,9 @@
 const start = document.querySelector('#start');
-const screen = document.querySelectorAll('.screen')
-const btnTime = document.querySelectorAll('.time-btn')
-const timeList = document.querySelector('.time-list')
+const screen = document.querySelectorAll('.screen');
+const btnTime = document.querySelectorAll('.time-btn');
+const timeList = document.querySelector('.time-list');
+let timeDisplay = document.querySelector('#time')
+let time = 20;
 
 start.addEventListener('click',(event) => {
 event.preventDefault()
@@ -9,12 +11,32 @@ screen[0].classList.add('up')
 })
 
 timeList.addEventListener('click',(event) => {
-    startGame()
     if(event.target.classList.contains('time-btn')) {
-        console.log(event.target.getAttribute('data-time'));
+        time = parseInt(event.target.getAttribute('data-time'));
+        screen[1].classList.add('up')
+        startGame()
     }
 })
 
+// game launch function
+
 function startGame() {
-    screen[1].classList.add('up')
+    setInterval(decreaseTime, 1000)
+    setTime(time)
+}
+
+function decreaseTime () {
+    if(time === 0) {
+        finishGame()
+    } else {
+        let current = --time
+        if(current < 10) {
+           current = `0`+ current
+        }
+        setTime(current)
+    }
+}
+
+function setTime(value) {
+    timeDisplay.innerHTML= `00:${value}`
 }
