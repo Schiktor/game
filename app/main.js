@@ -18,7 +18,15 @@ timeList.addEventListener('click',(event) => {
     }
 })
 
+board.addEventListener('click', event => {
+    if(event.target.classList.contains('circle')) {
+        event.target.remove()
+        createRandomCircle()
+    }
+})
+
 startGame()
+
 // game launch function
 
 function startGame() {
