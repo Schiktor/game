@@ -47,9 +47,12 @@ function createRandomCircle() {
     const circle = document.createElement('div');
     circle.classList.add('circle')
     const size = getRandomSize(10,60)
+    const {width, height} = board.getBoundingClientRect();
 
     circle.style.width=`${size}px`
     circle.style.height=`${size}px`
+    circle.style.top=`${getRandomSize(0, width - size)}px`
+    circle.style.left=`${getRandomSize(0, height - size)}px`
     board.append(circle)
 }
 
