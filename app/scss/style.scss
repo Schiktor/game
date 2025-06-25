@@ -1,4 +1,4 @@
-@import url('https://fonts.googleleapis.com/css?family=Khula&display=swap');
+// @import url('https://fonts.googleleapis.com/css?family=Khula&display=swap');
 
 * {
     box-sizing: border-box;
@@ -96,6 +96,8 @@ h1 {
 .circle {
     background: linear-gradient(90deg, #16D9E3 0%, #30C7EC 47%, #46AEF7 100%);
     position: absolute;
+    height: 20px;
+    width: 10px;
     border-radius: 50%;
     cursor: pointer;
 }
