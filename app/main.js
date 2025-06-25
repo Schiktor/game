@@ -4,7 +4,8 @@ const btnTime = document.querySelectorAll('.time-btn');
 const timeList = document.querySelector('.time-list');
 const board =document.querySelector('.board');
 let timeDisplay = document.querySelector('#time');
-let time = 10;
+let time = 2;
+let score = 0;
 
 start.addEventListener('click',(event) => {
 event.preventDefault()
@@ -20,6 +21,7 @@ timeList.addEventListener('click',(event) => {
 
 board.addEventListener('click', event => {
     if(event.target.classList.contains('circle')) {
+        score ++
         event.target.remove()
         createRandomCircle()
     }
@@ -66,4 +68,9 @@ function createRandomCircle() {
 
 function getRandomSize(min, max) {
     return Math.round(Math.random() * (max-min) + min)
+}
+
+function finishGame() {
+timeDisplay.parentNode.classList.add('hide')
+board.innerHTML = `<h1>СЧЁТ<span class="primary"> ${score}</span></h1>`
 }
